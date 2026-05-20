@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -7,9 +8,9 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-st.title("Ask my PDF 📄")
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
-GROQ_API_KEY = "YOUR_GROQ_API_KEY"
+st.title("Ask my PDF 📄")
 
 uploaded = st.file_uploader("Upload a PDF", type="pdf")
 
